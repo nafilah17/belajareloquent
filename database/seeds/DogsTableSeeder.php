@@ -4,13 +4,12 @@ use Illuminate\Database\Seeder;
 
 class DogsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        echo 'Seeding!';
+     	\App\Dogs::truncate();
+     	
+     	(new Faker\Generator)->seed(123);
+
+     	factory(App\Dogs::class, 50)->create();
     }
 }
